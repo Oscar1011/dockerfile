@@ -1,6 +1,6 @@
-FROM centos
+FROM alpine:3.10.3
 MAINTAINER sean8694@gmail.com
-RUN yum install -y epel-release && yum install -y privoxy
+RUN apk --no-cache --update add privoxy
 ADD privoxy_cfg.conf /
 ADD entrypoint.sh /
-CMD ["./entrypoint.sh"]
+CMD ["sh", "/entrypoint.sh"]
